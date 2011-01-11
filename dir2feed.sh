@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Watch a directory for mtime changes and output a feed of them to .www/watcher/
-# Suggested use: `ssh login.ccs.neu.edu dir2feed.sh cs4300 /course/cs4300/.www` in your feed reader.
+# Watch a directory for mtime changes and output a feed of them to .www/dir2feed/
+# Suggested use: `ssh login.ccs.neu.edu ~/bin/CCIS-utils/dir2feed.sh cs4300 /course/cs4300/.www` in your feed reader.
 
 set -o nounset
 set -o errexit
@@ -30,7 +30,7 @@ function readTimes() {
   find -P "$DIR" -print0 | xargs -0 stat --format='%y -- %n' | sed "s|$DIR||" | sed 's/\.000000000//'
 }
 
-DDIR="`echo ~`/.www/watcher"
+DDIR="`echo ~`/.www/dir2feed"
 
 if [ ! -d "$DDIR" ] ; then
   mkdir "$DDIR"
