@@ -1,4 +1,5 @@
 #!/bin/bash
+# Requires non-interactive SSH auth between CCIS machines, such as that provided by auto-ssh.sh
 # Suggested usage: ./uptime.sh | sort -rg | head -n 20
 
 FILT_UPTIME_1="sed 's:.*[^0-9]\([0-9]\+\) day.*:\1:'"
